@@ -5,8 +5,14 @@
 	const shields     = document.querySelectorAll('.sigil-container'),
 	      lightBox    = document.querySelector('.lightbox'),
 	      video       = document.querySelector('video');
+	      closeLB = document.querySelector('.lightbox-close');
 
 	function showLightbox(){
+		//  grab the right video source
+		debugger;
+        // get the lowercase house name from the class list
+		let targetHouse = this.className.split('')[1];
+
 		lightBox.classList.add('show-lightbox');
 		video.play();
 	}
@@ -22,4 +28,5 @@
 	shields.forEach(shield => shield.addEventListener('click', showLightbox));
 
 	video.addEventListener('ended', hideLightbox);
+	closeLB.addEventListener('click', hideLightbox);
 })();
