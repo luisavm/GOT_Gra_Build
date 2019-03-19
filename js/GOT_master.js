@@ -5,14 +5,14 @@
 	const shields     = document.querySelectorAll('.sigil-container'),
 	      lightBox    = document.querySelector('.lightbox'),
 	      video       = document.querySelector('video');
-	      closeLB = document.querySelector('.lightbox-close');
-	      banners = document.querySelector('#houseImages');
+	      closeLB     = document.querySelector('.lightbox-close');
+	      banners     = document.querySelector('#houseImages');
 
 	function showLightbox(){
 		//  grab the right video source
 		debugger;
         // get the lowercase house name from the class list
-		let targetHouse = this.className.split('')[1];
+		let targetHouse = this.className.split(" ")[1];
 
 		//  make sure the names match - needs to be uppercase
 		// start becomes start--> first make a capital S, then add ark (or any house name)
@@ -39,10 +39,11 @@
 
 	// this is the total distance the images need to move as a pixel value
 	// dataset .offset is coming from each shield we click on
-	totaOffset = this.dataset.offset * offSet + "px";
+	totalOffset = this.dataset.offset * offSet + "px";
 
 	// set the style  (css will animate this for us)
-	banner.style.right = totalOffset;
+	// banners.style.right = totalOffset;
+	TweenMax.to(banners, 0.8, { right: totalOffset });
     }
 
 	// shields.forEach(shield => shield.addEventListener('click', showLightbox));
