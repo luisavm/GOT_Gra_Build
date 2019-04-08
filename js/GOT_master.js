@@ -80,9 +80,8 @@
 	// set the style  (css will animate this for us)
 	// banners.style.right = totalOffset;
 
-	TweenMax.to(banners, 1.8, {right: totalOffset, onComplete:showLightbox(targetHouse)});
+	TweenMax.to(banners, 0.8, { right: totalOffset, onComplete: showLightbox, onCompleteParams:[targetHouse]});
     //TweenMax.to(element, 1, {opacity:0, , ease:Back.easeOut, useFrames:true});
-
     }
 
 	//shields.forEach(shield => shield.addEventListener('click', showLightbox));
