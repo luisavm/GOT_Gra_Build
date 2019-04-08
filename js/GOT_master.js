@@ -4,10 +4,10 @@
 	// grab the shields at the bottom of the page
 	const shields     = document.querySelectorAll('.sigil-container'),
 	      lightBox    = document.querySelector('.lightbox'),
-	      video       = document.querySelector('video');
-	      closeLB     = document.querySelector('.lightbox-close');
-	      banners     = document.querySelector('#houseImages');
-	      houseName   = document.querySelector('.house-name');
+	      video       = document.querySelector('video'),
+	      closeLB     = document.querySelector('.lightbox-close'),
+	      banners     = document.querySelector('#houseImages'),
+	      houseName   = document.querySelector('.house-name'),
  	      houseInfo   = document.querySelector('.house-info');
 
 
@@ -36,7 +36,7 @@
 
 	function showLightbox(){
 		//  grab the right video source
-		debugger;
+		// debugger;
         // get the lowercase house name from the class list
 		let targetHouse = this.className.split(" ")[1];
 
@@ -55,7 +55,7 @@
 		lightBox.classList.remove('show-lightbox');
 		// rewind the video to the begining 
 		// and also pause it 
-		video,currentTime = 0;
+		video.currentTime = 0;
 		video.pause();
 	}
 
@@ -68,16 +68,18 @@
 	totalOffset = this.dataset.offset * offSet; 
 	// + "px"
 
+	targetHouse = this.className.split(" ")[1];
+
 	// change the house name => this will only be Stark -> need to flip it 
-	houseName.textContent = `house ${houseData[0][0]}`;
+	houseName.textContent = `house ${houseData[this.dataset.offset][0]}`;
 
 	// change the house content -> this will only ever be the Stark house data 
-	// need to figure out how to change this to the right data 
-	houseInfo.textContent = houseData[0][1];
+	houseInfo.textContent = houseData[this.dataset.offset][1];
+
 
 	// set the style  (css will animate this for us)
 	// banners.style.right = totalOffset;
-	TweenMax.to(banners, 0.8, { right: totalOffset });
+	TweenMax.to(banners, 0.8, {right: totalOffset});
     }
 
 	// shields.forEach(shield => shield.addEventListener('click', showLightbox));
