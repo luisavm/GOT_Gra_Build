@@ -34,17 +34,17 @@
 	      ];
 
 
-	function showLightbox(){
+	function showLightbox(house){
 		//  grab the right video source
 		// debugger;
         // get the lowercase house name from the class list
-		let targetHouse = this.className.split(" ")[1];
+		//let targetHouse = this.className.split(" ")[1];
 
 		//  make sure the names match - needs to be uppercase
 		// start becomes start--> first make a capital S, then add ark (or any house name)
-		let targetSrc =  targetHouse.charAt(0).toUpperCase() + targetHouse.slice(1);
+		//let targetSrc =  targetHouse.charAt(0).toUpperCase() + targetHouse.slice(1);
 
-		video.src = `video/House-${targetSrc}.mp4`;
+		video.src = `video/House-${house}.mp4`;
 
 		lightBox.classList.add('show-lightbox');
 		video.load();
@@ -68,21 +68,24 @@
 	totalOffset = this.dataset.offset * offSet; 
 	// + "px"
 
-	targetHouse = this.className.split(" ")[1];
+	targetHouse = this.className.split(" ")[1]; // this will be the house ref that we need
 
 	// change the house name => this will only be Stark -> need to flip it 
 	houseName.textContent = `house ${houseData[this.dataset.offset][0]}`;
 
 	// change the house content -> this will only ever be the Stark house data 
 	houseInfo.textContent = houseData[this.dataset.offset][1];
-
+  
 
 	// set the style  (css will animate this for us)
 	// banners.style.right = totalOffset;
-	TweenMax.to(banners, 0.8, {right: totalOffset});
+
+	TweenMax.to(banners, 1.8, {right: totalOffset, onComplete:showLightbox(targetHouse)});
+    //TweenMax.to(element, 1, {opacity:0, , ease:Back.easeOut, useFrames:true});
+
     }
 
-	// shields.forEach(shield => shield.addEventListener('click', showLightbox));
+	//shields.forEach(shield => shield.addEventListener('click', showLightbox));
 	shields.forEach(shield => shield.addEventListener('click', animateBanner));
 
 	video.addEventListener('ended', hideLightbox);
