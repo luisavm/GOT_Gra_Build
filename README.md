@@ -11,7 +11,6 @@ There are six different house sigils under clever tagline goes here, you would c
 This site was built with HTML5, JavaScript, and CSS. HTML5 runs on Chrome, Firefox, and Safari.
 
 ## Author
-
-Luisa Valero [Luisa Valero]( https://github.com/luisavm)
+[Luisa Valero]( https://github.com/luisavm)
 
 
