@@ -87,6 +87,9 @@
 	//shields.forEach(shield => shield.addEventListener('click', showLightbox));
 	shields.forEach(shield => shield.addEventListener('click', animateBanner));
 
+	//fade in effect for the sigils 
+	TweenMax.staggerFrom(shields, 0.4, {opacity:0, y:320, delay: 0.2}, 0.2);
+
 	video.addEventListener('ended', hideLightbox);
 	closeLB.addEventListener('click', hideLightbox);
 })();
